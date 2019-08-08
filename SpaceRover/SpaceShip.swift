@@ -102,7 +102,7 @@ class SpaceShip: SKSpriteNode {
   var turnsDisabled = 0
   var deathReason: String?
   // We need to count how many half gravity wells this ship has hit this turn, because
-  // every other half gravity is optional.
+  // every other half gravity is optional (odd numbered).
   var halfGravityHits = 0
 
   convenience init(name: String, on: Planet, tiles: SKTileMapNode, color: SpaceshipColor,
@@ -228,7 +228,7 @@ class SpaceShip: SKSpriteNode {
   func useFuel(_ units: Int) {
     fuel -= units
     calculateOrbit()
-    if (fuel == 0) {
+    if (fuel <= 0) {
       arrows?.disable()
       //"We're outta gas sir."
     }

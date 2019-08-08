@@ -40,8 +40,10 @@ class PlayerEntryController: UIViewController, UIPickerViewDelegate, UIPickerVie
   }
 
   @IBAction func savePlayer(_ sender: UIBarButtonItem) {
-    print("savePlayer = \(String(describing: navigationController))")
-    navigationController?.popViewController(animated: true)
+    if(!(String(describing: playerName) == "")){
+      print("savePlayer = \(String(describing: navigationController))")
+      navigationController?.popViewController(animated: true)
+    }
   }
 
   @IBAction func cancelButton(_ sender: Any) {
